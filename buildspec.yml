@@ -10,13 +10,13 @@ phases:
     commands:
       - cd $CODE_BUILD_SRC_DIR_SourceArtifact
       - touch 'template.yml'
-      - touch 'scripts/**/*'
-      - touch 'datascience/**/*.py'
+      - touch touch -c -- 'scripts/**/*'
+      - touch touch -c --'datascience/**/*.py'
       - touch 'appspec.yml'
       - touch 'requirements.txt'
       - touch 'template-configuration.json'
       - cd $CODE_BUILD_SRC_DIR_ModelSourceArtifact
-      - 'datascience/models/predict.pickle'
+      - touch 'predict.pickle'
 
 artifacts:
   type: zip
@@ -27,4 +27,4 @@ artifacts:
     - 'appspec.yml'
     - 'requirements.txt'
     - 'template-configuration.json'
-    - 'datascience/models/predict.pickle'
+    - 'predict.pickle'
