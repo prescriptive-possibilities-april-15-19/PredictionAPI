@@ -17,7 +17,7 @@ artifacts:
     - 'requirements.txt'
     - 'template-configuration.json'
   secondary-artifacts:
-    prescriptive-ModelSourceArtifact:
-      base-directory: $CODEBUILD_SRC_DIR_prescriptive-ModelSourceArtifact
+    ModelSourceArtifact:
+      base-directory: $CODEBUILD_SRC_DIR_ModelSourceArtifact
       files:
         - predict.pickle
