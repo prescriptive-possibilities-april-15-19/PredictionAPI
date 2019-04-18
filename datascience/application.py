@@ -15,7 +15,7 @@ def predict():
     smiles = request.form.get('smiles')
     pr_seq = request.form.get('sequence')
     if smiles != "" and pr_seq != "":
-        return str(predict.predict(data_lig, data_seq))
+        return str(predict.predict(data_lig, data_seq)[0,1])
     return str(-1.0)
 
 if __name__ == '__main__':

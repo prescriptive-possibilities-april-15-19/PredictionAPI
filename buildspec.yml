@@ -15,9 +15,11 @@ phases:
       - touch 'appspec.yml'
       - touch 'requirements.txt'
       - touch 'template-configuration.json'
+      - echo $(readlink -f template-configuration.json)
       - cd $CODEBUILD_SRC_DIR_ModelSourceArtifact
       - echo $(ls)
       - touch 'predict.pickle'
+      - echo $(readlink -f predict.pickle)
 
 artifacts:
   type: zip
