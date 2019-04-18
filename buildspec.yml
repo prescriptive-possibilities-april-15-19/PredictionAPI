@@ -8,17 +8,16 @@ phases:
       - sed -i.bak 's/\$PARTITION\$/'${PARTITION}'/g;s/\$AWS_REGION\$/'${AWS_REGION}'/g;s/\$ACCOUNT_ID\$/'${ACCOUNT_ID}'/g;s/\$PROJECT_ID\$/'${PROJECT_ID}'/g' template-configuration.json
   build:
     commands:
-      - echo $(ls)
+      - cd $CODEBUILD_SRC_DIR_ModelSourceArtifact
+      - cp 'predict.pickle' $CODEBUILD_SRC_DIR
+      - cd $CODEBUILD_SRC_DIR
       - touch 'template.yml'
       - touch -c -- 'scripts/**/*'
       - touch -c -- 'datascience/**/*.py'
       - touch 'appspec.yml'
       - touch 'requirements.txt'
       - touch 'template-configuration.json'
-      - cd $CODEBUILD_SRC_DIR_ModelSourceArtifact
-      - echo $(ls)
       - touch 'predict.pickle'
-      - cp 'predict.pickle' '/root/predict.pickle'
 
 artifacts:
   type: zip
