@@ -18,6 +18,7 @@ artifacts:
     - 'template-configuration.json'
   secondary-artifacts:
     ModelSourceArtifact:
+      type: zip
       base-directory: $CODEBUILD_SRC_DIR_ModelSourceArtifact
       files:
         - predict.pickle
