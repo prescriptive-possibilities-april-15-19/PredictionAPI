@@ -11,7 +11,7 @@ phases:
       - cd $CODE_BUILD_SRC_DIR_SourceArtifact
       - touch 'template.yml'
       - touch touch -c -- 'scripts/**/*'
-      - touch touch -c --'datascience/**/*.py'
+      - touch touch -c -- 'datascience/**/*.py'
       - touch 'appspec.yml'
       - touch 'requirements.txt'
       - touch 'template-configuration.json'
