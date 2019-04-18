@@ -16,23 +16,17 @@ phases:
       - touch 'requirements.txt'
       - touch 'template-configuration.json'
       - cd $CODEBUILD_SRC_DIR_ModelSourceArtifact
+      - echo $(ls)
       - touch 'predict.pickle'
 
 artifacts:
-  secondary-artifacts:
-    ModelSourceArtifact:
-      type: zip
-      baseDirectory: $CODEBUILD_SRC_DIR_ModelSourceArtifact
-      files:
-      - 'predict.pickle'
-    SourceArtifact:
-      type: zip
-      baseDirectory: $CODEBUILD_SRC_DIR_SourceArtifact
-      files:
-        - template.yml
-        - scripts/**/*
-        - datascience/**/*.py
-        - appspec.yml
-        - requirements.txt
-        - template-configuration.json
+  type: zip
+  files:
+    - template.yml
+    - scripts/**/*
+    - datascience/**/*.py
+    - appspec.yml
+    - requirements.txt
+    - template-configuration.json
+    - predict.pickle
 
