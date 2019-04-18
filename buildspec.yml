@@ -8,18 +8,13 @@ phases:
       - sed -i.bak 's/\$PARTITION\$/'${PARTITION}'/g;s/\$AWS_REGION\$/'${AWS_REGION}'/g;s/\$ACCOUNT_ID\$/'${ACCOUNT_ID}'/g;s/\$PROJECT_ID\$/'${PROJECT_ID}'/g' template-configuration.json
   build:
     commands:
-      - echo $CODE_BUILD_SRC_DIR_ModelSourceArtifact
-      - echo $CODE_BUILD_SRC_DIR_SourceArtifact
-      - pickle_new='$CODE_BUILD_SRC_DIR_SourceArtifact/predict.pickle'
-      - echo $pickle_new
-      - cp '$CODE_BUILD_SRC_DIR_ModelSourceArtifact/predict.pickle' '$CODE_BUILD_SRC_DIR_SourceArtifact/predict.pickle'
-      - cd $CODE_BUILD_SRC_DIR_SourceArtifact
       - touch 'template.yml'
       - touch touch -c -- 'scripts/**/*'
       - touch touch -c -- 'datascience/**/*.py'
       - touch 'appspec.yml'
       - touch 'requirements.txt'
       - touch 'template-configuration.json'
+      - cd $CODE_BUILD_SRC_DIR_ModelSourceArtifact
       - touch 'predict.pickle'
 
 artifacts:
@@ -31,4 +26,8 @@ artifacts:
     - 'appspec.yml'
     - 'requirements.txt'
     - 'template-configuration.json'
-    - 'predict.pickle'
+  secondary-artifacts:
+    ModelSourceArtifact:
+      base-directory: $CODE_BUILD_SRC_DIR_ModelSourceArtifact
+      files:
+        - 'predict.pickle'
