@@ -19,7 +19,9 @@ phases:
       - cd $CODEBUILD_SRC_DIR_ModelSourceArtifact
       - echo $(ls)
       - touch 'predict.pickle'
-      - echo $(readlink -f predict.pickle)
+      - echo $CODEBUILD_SRC_DIR_SourceArtifact
+      - echo $CODEBUILD_SRC_DIR_ModelSourceArtifact
+      - cp 'predict.pickle' $CODEBUILD_SRC_DIR_SourceArtifact
 
 artifacts:
   type: zip
