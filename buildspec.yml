@@ -15,13 +15,9 @@ phases:
       - touch 'appspec.yml'
       - touch 'requirements.txt'
       - touch 'template-configuration.json'
-      - echo $(readlink -f template-configuration.json)
       - cd $CODEBUILD_SRC_DIR_ModelSourceArtifact
-      - echo $(ls)
       - touch 'predict.pickle'
-      - echo $CODEBUILD_SRC_DIR_SourceArtifact
-      - echo $CODEBUILD_SRC_DIR_ModelSourceArtifact
-      - cp 'predict.pickle' $CODEBUILD_SRC_DIR_SourceArtifact
+      - cp 'predict.pickle' '/root/predict.pickle'
 
 artifacts:
   type: zip
