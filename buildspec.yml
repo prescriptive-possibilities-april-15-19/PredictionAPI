@@ -14,7 +14,6 @@ phases:
       - touch 'appspec.yml'
       - touch 'requirements.txt'
       - touch 'template-configuration.json'
-      - cd $CODE_BUILD_SRC_DIR_ModelSourceArtifact
       - touch 'predict.pickle'
 
 artifacts:
@@ -26,9 +25,4 @@ artifacts:
     - 'appspec.yml'
     - 'requirements.txt'
     - 'template-configuration.json'
-  secondary-artifacts:
-    ModelSourceArtifact:
-      type: zip
-      base-directory: $CODE_BUILD_SRC_DIR_ModelSourceArtifact
-      files:
-        - 'predict.pickle'
+    - 'predict.pickle'
