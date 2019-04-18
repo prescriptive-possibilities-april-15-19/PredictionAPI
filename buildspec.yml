@@ -15,10 +15,9 @@ artifacts:
   files:
     - 'template.yml'
     - 'scripts/**/*'
-    - 'helloworld/**/*.py'
+    - 'datascience/**/*.py'
     - 'appspec.yml'
     - 'requirements.txt'
-    - 'setup.py'
     - 'template-configuration.json'
   secondary-artifacts:
     prescriptive-ModelSourceArtifact:
