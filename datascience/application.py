@@ -7,7 +7,7 @@ from datascience.flaskrun import flaskrun
 
 application = Flask(__name__, static_folder=None)
 
-with open("/home/ec2-user/python-flask-service/predict.pickle", "rb") as fp:
+with open("models/predict.pickle", "rb") as fp:
     predict = pickle.load(fp)
 
 @application.route("/predict", methods=["POST"])
