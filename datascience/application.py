@@ -3,7 +3,7 @@ import json
 import dill
 import numpy as np
 from flask import Flask, Response
-from datascience.flaskrun import flaskrun
+from flaskrun import flaskrun
 
 
 application = Flask(__name__, static_folder=None)
