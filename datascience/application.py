@@ -9,7 +9,7 @@ from flaskrun import flaskrun
 application = Flask(__name__, static_folder=None)
 
 with open("/home/ec2-user/python-flask-service/predict.pk", "rb") as fp:
-    model = pickle.load(fp)
+    model = dill.load(fp)
 
 @application.route("/predict", methods=["POST"])
 def predict():
