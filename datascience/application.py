@@ -2,7 +2,7 @@
 import json
 import dill
 import numpy as np
-from flask import Flask, Response
+from flask import Flask, request
 from flaskrun import flaskrun
 
 
